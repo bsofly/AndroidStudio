@@ -42,30 +42,34 @@ class ResultFragment : Fragment() {
             }
         }
     }
+}
 
-    @Composable
-    fun ResultText(result: String) {
-        Text(text = result,
-            fontSize = 28.sp,
-            textAlign = TextAlign.Center)
+@Composable
+fun ResultText(result: String) {
+    Text(
+        text = result,
+        fontSize = 28.sp,
+        textAlign = TextAlign.Center
+    )
+}
+
+@Composable
+fun NewGameButton(clicked: () -> Unit) {
+    Button(onClick = clicked) {
+        Text("Start New Game")
     }
+}
 
-    @Composable
-    fun NewGameButton(clicked: () -> Unit) {
-        Button(onClick = clicked) {
-            Text("Start New Game")
-        }
-    }
-
-    @Composable
-    fun ResultFragmentContent(view: View, viewModel: ResultViewModel) {
-        Column(modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally) {
-            ResultText(result = viewModel.result)
-            NewGameButton {
-                view.findNavController()
-                    .navigate(R.id.action_resultFragment_to_gameFragment)
-            }
+@Composable
+fun ResultFragmentContent(view: View, viewModel: ResultViewModel) {
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        ResultText(result = viewModel.result)
+        NewGameButton {
+            view.findNavController()
+                .navigate(R.id.action_resultFragment_to_gameFragment)
         }
     }
 }
