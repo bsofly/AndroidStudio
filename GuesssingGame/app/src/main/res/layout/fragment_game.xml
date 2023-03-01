@@ -66,5 +66,10 @@
             android:text="Finish Game"
             android:onClick="@{ () -> gameViewModel.finishGame()}"
             tools:ignore="HardcodedText" />
+
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/composeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </layout>
